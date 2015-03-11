@@ -1,0 +1,40 @@
+h2 {
+	font-family: 'Lato';
+	font-weight: 100;
+	color: white;
+}
+
+.main {
+	margin: 0 auto;
+	padding: 30px 5%;
+}
+
+.title {
+  	font-family: 'Lato';
+  	font-weight: 100;
+  	font-size: 9em;
+  	color: white;
+  	margin: 50px 0 0 0;
+  	padding: 0;
+  	line-height: 1;
+  }
+
+p{
+	padding: 0 0 0 35px;
+	margin: 0;
+	color: white;
+
+}
+
+body {
+	height: 100%;;
+	margin: 0;
+	/*background: -webkit-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
+  background:    -moz-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
+  background:     -ms-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
+  background:      -o-linear-gradient(45deg, #50C9C3 30%, #96DEDA 70%);*/
+  background:         linear-gradient(45deg, #96DEDA, #49a09d); 
+        
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
