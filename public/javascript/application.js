@@ -35,6 +35,8 @@ $(document).ready(function() {
 							success: function(parsed_json) {
 								console.log(parsed_json);
 								console.log(parsed_json.current_observation['feelslike_c']);
+								var temp = parsed_json.current_observation['feelslike_c'];
+								$("#temp").text(temp);
 							}
 
 						});	

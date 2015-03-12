@@ -11,6 +11,8 @@ h2 {
 .main {
 	margin: 0 auto;
 	padding: 30px 5%;
+	width: 100%;
+	display: block;
 }
 
 .title {
@@ -45,13 +47,14 @@ h2 {
 }
 
 body {
-	height: 100%;;
+	height: 100%;
+	width: 100%;
 	margin: 0;
 	/*background: -webkit-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
   background:    -moz-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
   background:     -ms-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
   background:      -o-linear-gradient(45deg, #50C9C3 30%, #96DEDA 70%);*/
-  background:         linear-gradient(45deg, #96DEDA, #41908D); 
+  background:         linear-gradient(138deg, #96DEDA, #275654); 
         
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -65,4 +68,14 @@ body {
 .locations {
 	margin: 0 0 0 50px;
 	color: white;
+}
+
+.float-left {
+	float: left;
+	width: 50%;
+}
+
+.float-right {
+	float: right;
+	width: 50%;
 }
