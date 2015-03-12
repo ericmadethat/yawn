@@ -45,8 +45,17 @@ body {
   background:    -moz-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
   background:     -ms-linear-gradient(45deg, #5f2c82 30%, #49a09d 70%);
   background:      -o-linear-gradient(45deg, #50C9C3 30%, #96DEDA 70%);*/
-  background:         linear-gradient(45deg, #96DEDA, #49a09d); 
+  background:         linear-gradient(45deg, #96DEDA, #41908D); 
         
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+}
+
+#cityname {
+	font-size: 8;
+	color: white;
+}
+
+#locations {
+	margin: 0 0 0 50px;
 }

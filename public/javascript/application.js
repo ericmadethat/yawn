@@ -22,7 +22,7 @@ $(document).ready(function() {
 				var i;
 				for (i in data.RESULTS) {
 					console.log(data.RESULTS[i]);
-					$('#cityname').append('<p>' + data.RESULTS[i].name + '</p>');	
+					$('body').append('<div id="locations">' + data.RESULTS[i].name + '</div>');	
 
 				};
 			}
