@@ -18,18 +18,40 @@ $(document).ready(function() {
 				format: "json",
 				query: myquery
 			},
-			success: function (data) {
-				var i;
-				for (i in data.RESULTS) {
-					console.log(data.RESULTS[i]);
-					$('body').append('<div id="locations">' + data.RESULTS[i].name + '</div>');	
+			success: function(data) {
+				$('.locations').remove();
+				$.each(data, function(i, results){
+					console.log(results);
+					$.each(results, function(i, object){
+					console.log(object);
+					console.log(object.name);
+					$(".cityname").append('<div class="locations">' + object.name + '</div>');
+					
+					$('.locations').on('click', function(event2){
+						$.ajax({
+							url: 'http://api.wunderground.com/api/3539b8fc30aad6aa/conditions/' + object.l + '.json',
+							method: 'GET',
+							dataType: 'jsonp',
+							success: function(parsed_json) {
+								console.log(parsed_json);
+								console.log(parsed_json.current_observation['feelslike_c']);
+							}
 
-				};
+						});	
+					});
+				});
+				});
 			}
 		});
 	});
 
 
+
+				// var i;
+				// for (i in data.RESULTS) {
+				// 	console.log(data.RESULTS[i]);
+				// 	$('body').append('<div id="locations">' + data.RESULTS[i].name + '</div>');	
+				// };
 
 	// $('#searchbutton').on('click', function(event) {
 	// 	event.preventDefault();

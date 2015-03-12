@@ -1,3 +1,7 @@
+html {
+	color: white;
+}
+
 h2 {
 	font-family: 'Lato';
 	font-weight: 100;
@@ -32,10 +36,12 @@ h2 {
 #searchbar {
 	width: 300px;
 	font-weight: 300;
+	color: black;
 }
 
 #searchbutton {
 	font-weight: 300;
+	color: black;
 }
 
 body {
@@ -51,11 +57,12 @@ body {
 	background-attachment: fixed;
 }
 
-#cityname {
+.cityname {
 	font-size: 8;
 	color: white;
 }
 
-#locations {
+.locations {
 	margin: 0 0 0 50px;
+	color: white;
 }
