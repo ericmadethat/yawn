@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'sinatra/json'
+require "sinatra/json"
 
 require 'active_support/all'
 

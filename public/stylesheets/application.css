@@ -19,11 +19,23 @@ h2 {
   	line-height: 1;
   }
 
-p{
+.subtitle {
 	padding: 0 0 0 35px;
-	margin: 0;
+	margin: 0 0 40px 0;
 	color: white;
+}
 
+.search {
+	margin: 0 0 0 35px;
+}
+
+#searchbar {
+	width: 300px;
+	font-weight: 300;
+}
+
+#searchbutton {
+	font-weight: 300;
 }
 
 body {
