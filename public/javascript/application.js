@@ -38,7 +38,6 @@ $(document).ready(function() {
 								var temp = parsed_json.current_observation['feelslike_c'];
 								$("#temp").text(temp);
 							}
-
 						});	
 					});
 				});
