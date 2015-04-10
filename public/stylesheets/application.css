@@ -25,6 +25,16 @@ h2 {
   	line-height: 1;
   }
 
+.forecast {
+	font-family: 'Lato';
+	font-weight: 100;
+	font-size: 4em;
+	color: white;
+	padding: 0;
+	line-height: 0.7;
+	margin-bottom: 0;
+}
+
 .subtitle {
 	padding: 0 0 0 35px;
 	margin: 0 0 40px 0;
@@ -66,8 +76,10 @@ body {
 }
 
 .locations {
-	margin: 0 0 0 50px;
+	margin: 0 0 0 0;
 	color: white;
+	padding: 0 0 0 50px;
+	width: 300px;
 }
 
 .float-left {
@@ -78,4 +90,9 @@ body {
 .float-right {
 	float: right;
 	width: 50%;
+	right: 100px;
+}
+
+.locations:hover{
+	background-color: rgba(0,0,0,0.3);
 }

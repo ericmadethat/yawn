@@ -1,85 +1,46 @@
 $(document).ready(function() {
 	console.log("ready!");
-	var urlWeather = 'http://autocomplete.wunderground.com/aq?cb=callback&query=';
-	var myquery;
-//callback=getlocation
+	var cities;
 
 
+	var findCities = function(response){
+		cities = response.RESULTS;
+		for (i=0; i < cities.length; i++){
+			$(".cityname").append('<div class="locations">' + cities[i].name + '</div>');
+		}
+	}
+
+	var showWeather = function(data) {
+		console.log(data);
+		var results = data.current_observation;
+		$("#weather").html(results.weather).append('<img src="' + results.icon_url + '">');
+		$("#temp").html(results.temp_c + '°C');
+
+	}
 
 	$('#searchbutton').on('click', function(event) {
 		event.preventDefault();
+		$(".locations").remove();
 		var myquery = $('#searchbar').val();
 		$.ajax({
-			url: 'http://autocomplete.wunderground.com/aq',
 			method: 'GET',
+			url: 'http://autocomplete.wunderground.com/aq?query=' + myquery,
 			dataType: "jsonp",
 			jsonp: "cb",
-			data: {
-				format: "json",
-				query: myquery
-			},
-			success: function(data) {
-				$('.locations').remove();
-				$.each(data, function(i, results){
-					console.log(results);
-					$.each(results, function(i, object){
-					console.log(object);
-					console.log(object.name);
-					$(".cityname").append('<div class="locations">' + object.name + '</div>');
-					
-					$('.locations').on('click', function(event2){
-						$.ajax({
-							url: 'http://api.wunderground.com/api/3539b8fc30aad6aa/conditions/' + object.l + '.json',
-							method: 'GET',
-							dataType: 'jsonp',
-							success: function(parsed_json) {
-								console.log(parsed_json);
-								console.log(parsed_json.current_observation['feelslike_c']);
-								var temp = parsed_json.current_observation['feelslike_c'];
-								$("#temp").text(temp);
-							}
-						});	
-					});
-				});
-				});
-			}
+			success: findCities
 		});
 	});
 
-
-
-				// var i;
-				// for (i in data.RESULTS) {
-				// 	console.log(data.RESULTS[i]);
-				// 	$('body').append('<div id="locations">' + data.RESULTS[i].name + '</div>');	
-				// };
-
-	// $('#searchbutton').on('click', function(event) {
-	// 	event.preventDefault();
-	// 	var query = $('#searchbar').val();
-	// 	$.ajax({
-	// 		url: urlWeather + query,
-	// 		method: 'GET',
-	// 		dataType: "jsonp",
-	// 		success: getLocation
-	// 	});
-	// 	function getLocation(json){
-	// 		console.log(json);
-	// 		$.each(json.results, function(i, location) {
-	// 			$('#cityname').append('<p>' + location.name + '</p>');	
-	// 		});
-	// 	};
-	// });
-
-
-
-	// $('#searchbutton').on('click', function(event) {
-	// 	event.preventDefault();
-	// 	query = $('#searchbar').val();
-	// 	$.getJSON(url + query + '&cb=callbackfunc', function(json) {
-	// 			$.each(json.results, function(i, location) {
-	// 				$('#cityname').append('<p>' + location.name + '</p>');
-	// 			});
-	// 	});
-	// });
+	$('.cityname').on('click', '.locations', function(event){
+		console.log('clicked location');
+		var name = $(this).text();
+		console.log(this);
+		$.ajax({
+			url: 'http://api.wunderground.com/api/3539b8fc30aad6aa/conditions/q/' + name + '.json',
+			type: 'GET',
+			dataType: 'json',
+			jsonp: 'cb',
+			success: showWeather
+		})
+	});
 });
