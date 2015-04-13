@@ -1,3 +1,3 @@
 #YAWN
-##(Yet Another Weather Newscast)
+(Yet Another Weather Newscast)
 A simple weather web app that uses wunderground's API.
